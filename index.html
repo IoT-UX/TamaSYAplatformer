@@ -223,26 +223,25 @@
             font-size: clamp(12px, 3vw, 14px);
         }
 
-        /* CONTROLS - PERBAIKAN UNTUK MOBILE */
+        /* CONTROLS - POSISI SEDIKIT DI BAWAH TENGAH */
         #mobileControls {
             position: absolute;
-            bottom: 0;
+            bottom: 15%;
             left: 0;
             width: 100%;
-            height: 200px;
+            transform: translateY(0);
             pointer-events: none;
             z-index: 100;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            padding: 20px;
+            align-items: center;
+            padding: 0 20px;
         }
 
         .dpad {
             display: flex;
             gap: 12px;
             pointer-events: auto;
-            margin-bottom: 10px;
         }
 
         .actions {
@@ -251,7 +250,6 @@
             gap: 12px;
             align-items: flex-end;
             pointer-events: auto;
-            margin-bottom: 10px;
         }
 
         .action-row {
@@ -391,41 +389,39 @@
             max-width: 90%;
         }
 
-        /* Desktop optimizations */
+        /* Desktop optimizations - Tombol tetap di tengah */
         @media (min-width: 768px) {
             #mobileControls {
-                height: 220px;
-                padding: 30px;
+                padding: 0 40px;
             }
             
             .btn-touch {
-                width: 75px;
-                height: 75px;
+                width: 80px;
+                height: 80px;
                 font-size: 32px;
             }
             
             .btn-jump {
-                width: 85px;
-                height: 85px;
+                width: 90px;
+                height: 90px;
             }
         }
 
-        /* Small screen optimizations */
-        @media (max-width: 480px) {
+        /* Small screen optimizations - 6.1 inch phones */
+        @media (max-width: 480px) and (min-height: 800px) {
             #mobileControls {
-                height: 180px;
-                padding: 15px;
+                padding: 0 20px;
             }
 
             .btn-touch {
-                width: 65px;
-                height: 65px;
-                font-size: 24px;
+                width: 68px;
+                height: 68px;
+                font-size: 26px;
             }
 
             .btn-jump {
-                width: 75px;
-                height: 75px;
+                width: 78px;
+                height: 78px;
             }
 
             .dpad {
@@ -448,6 +444,42 @@
 
         /* Extra small screens */
         @media (max-width: 380px) {
+            #mobileControls {
+                padding: 0 15px;
+            }
+
+            .btn-touch {
+                width: 62px;
+                height: 62px;
+                font-size: 24px;
+            }
+
+            .btn-jump {
+                width: 72px;
+                height: 72px;
+            }
+            
+            .dpad {
+                gap: 8px;
+            }
+
+            .action-row {
+                gap: 8px;
+            }
+
+            .actions {
+                gap: 8px;
+            }
+        }
+
+        /* Landscape mode - tombol lebih dekat ke samping */
+        @media (max-height: 500px) and (orientation: landscape) {
+            #mobileControls {
+                bottom: 20%;
+                transform: translateY(0);
+                padding: 0 30px;
+            }
+
             .btn-touch {
                 width: 60px;
                 height: 60px;
